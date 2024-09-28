@@ -67,7 +67,7 @@ class TweetController extends Controller
             'article_url' => 'required',
         ]);
 
-        $tweet->update($request->only('tweet'));
+        $tweet->update($request->only(['article', 'article_url', 'tweet']));
 
         return redirect()->route('tweets.show', $tweet);
     }
