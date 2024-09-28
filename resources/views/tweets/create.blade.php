@@ -16,10 +16,10 @@
             <div class="mb-4">
               <label for="article" class="block text-gray-700 dark:text-gray-300 text-sm font-bold mb-2">article</label>
               <input type="text" name="article" id="article" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 dark:text-gray-300 dark:bg-gray-700 leading-tight focus:outline-none focus:shadow-outline">
-              <label for="article_URL" class="block text-gray-700 dark:text-gray-300 text-sm font-bold mb-2">article_URL</label>
-              <input type="url" name="article_URL" id="article_URL" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 dark:text-gray-300 dark:bg-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+              <label for="article_url" class="block text-gray-700 dark:text-gray-300 text-sm font-bold mb-2">article_URL</label>
+              <input type="url" name="article_url" id="article_url" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 dark:text-gray-300 dark:bg-gray-700 leading-tight focus:outline-none focus:shadow-outline">
               <label for="tweet" class="block text-gray-700 dark:text-gray-300 text-sm font-bold mb-2">Tweet</label>
-              <input type="text" name="tweet" id="tweet" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 dark:text-gray-300 dark:bg-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+              <textarea name="tweet" id="tweet" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 dark:text-gray-300 dark:bg-gray-700 leading-tight focus:outline-none focus:shadow-outline"></textarea>
               @error('tweet')
               <span class="text-red-500 text-xs italic">{{ $message }}</span>
               @enderror
@@ -30,17 +30,4 @@
       </div>
     </div>
   </div>
-
-  <script>
-    document.getElementById('tweetForm').addEventListener('keydown', function(event) {
-      if (event.key === 'Enter' && event.target.id === 'tweet') {
-        event.preventDefault();
-        const textarea = event.target;
-        const start = textarea.selectionStart;
-        const end = textarea.selectionEnd;
-        textarea.value = textarea.value.substring(0, start) + "\n" + textarea.value.substring(end);
-        textarea.selectionStart = textarea.selectionEnd = start + 1;
-      }
-    });
-  </script>
 </x-app-layout>

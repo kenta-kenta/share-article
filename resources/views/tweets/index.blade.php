@@ -13,6 +13,8 @@
         <div class="p-6 text-gray-900 dark:text-gray-100">
           @foreach ($tweets as $tweet)
           <div class="mb-4 p-4 bg-gray-100 dark:bg-gray-700 rounded-lg">
+            <p class="text-gray-800 dark:text-gray-300">{{ $tweet->article }}</p>
+            <p class="text-gray-800 dark:text-gray-300">{{ $tweet->article_url }}</p>
             <p class="text-gray-800 dark:text-gray-300">{{ $tweet->tweet }}</p>
             <p class="text-gray-600 dark:text-gray-400 text-sm">投稿者: {{ $tweet->user->name }}</p>
             <a href="{{ route('tweets.show', $tweet) }}" class="text-blue-500 hover:text-blue-700">詳細を見る</a>

@@ -35,7 +35,7 @@ class TweetController extends Controller
             'article_url' => 'required',
         ]);
 
-        $request->user()->tweets()->create($request->only(['tweet', 'article', 'article_url']));
+        $request->user()->tweets()->create($request->only(['article', 'article_url', 'tweet']));
 
         return redirect()->route('tweets.index');
     }
