@@ -61,7 +61,15 @@ class TweetController extends Controller
      */
     public function update(Request $request, Tweet $tweet)
     {
-        //
+        $request->validate([
+            'tweet' => 'required',
+            'article' => 'required|max:255',
+            'article_url' => 'required',
+        ]);
+
+        $tweet->update($request->only('tweet'));
+
+        return redirect()->route('tweets.show', $tweet);
     }
 
     /**
