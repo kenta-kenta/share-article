@@ -12,7 +12,8 @@ class TweetLikeController extends Controller
      */
     public function index()
     {
-        //
+        $tweets = Tweet::with(['user', 'liked'])->latest()->get();
+        return view('tweets.index', compact('tweets'));
     }
 
     /**
