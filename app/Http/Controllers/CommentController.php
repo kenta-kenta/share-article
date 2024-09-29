@@ -74,8 +74,10 @@ class CommentController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Comment $comment)
+    public function destroy(Tweet $tweet, Comment $comment)
     {
-        //
+        $comment->delete();
+
+        return redirect()->route('tweets.show', $tweet);
     }
 }
