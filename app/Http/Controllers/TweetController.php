@@ -12,7 +12,7 @@ class TweetController extends Controller
      */
     public function index()
     {
-        $tweets = Tweet::with('user')->latest()->get();
+        $tweets = Tweet::with('user')->latest()->paginate(10);
         return view('tweets.index', compact('tweets'));
     }
 
@@ -81,5 +81,23 @@ class TweetController extends Controller
         $tweet->delete();
 
         return redirect()->route('tweets.index');
+    }
+
+    public function search(Request $request)
+    {
+        $query = Tweet::query();
+
+        // キーワードが指定されている場合のみ検索を実行
+        if ($request->filled('keyword')) {
+            $keyword = $request->keyword;
+            $query->where('tweet', 'like', '%' . $keyword . '%');
+        }
+
+        // ページネーションを追加(1ページに10件表示)
+        $tweets = $query
+            ->latest()
+            ->paginate(10);
+
+        return view('tweets.search', compact('tweets'));
     }
 }
