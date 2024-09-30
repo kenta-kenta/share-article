@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\View\View;
+use App\Models\User;
 
 class ProfileController extends Controller
 {
@@ -20,7 +21,14 @@ class ProfileController extends Controller
             'user' => $request->user(),
         ]);
     }
-
+    
+    /**
+     * Display the user's profile.
+     */
+    public function show(User $user)
+    {
+        return view('profile.show', compact('user'));
+    }
     /**
      * Update the user's profile information.
      */
