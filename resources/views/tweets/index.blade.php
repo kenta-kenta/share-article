@@ -11,16 +11,17 @@
     <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
       <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
         <div class="p-6 text-gray-900 dark:text-gray-100">
-        <div class="mb-4">
+          <div class="mb-4">
             {{ $tweets->appends(request()->input())->links() }}
           </div>
           @foreach ($tweets as $tweet)
           <div class="mb-4 p-4 bg-gray-100 dark:bg-gray-700 rounded-lg">
-            <p class="text-gray-800 dark:text-gray-300">{{ $tweet->article }}</p>
-            <p class="text-gray-800 dark:text-gray-300">{{ $tweet->article_url }}</p>
+            <a href="{{ $tweet->article_url }}">
+              <p class="text-gray-600 underline hover:underline hover:text-gray-500 dark:text-gray-400">{{ $tweet->article }}</p>
+            </a>
             <p class="text-gray-800 dark:text-gray-300">{{ $tweet->tweet }}</p>
             <a href="{{ route('profile.show', $tweet->user) }}">
-              <p class="text-gray-600 dark:text-gray-400 text-sm">投稿者: {{ $tweet->user->name }}</p>
+              <p class="text-gray-600 dark:text-gray-400 text-sm hover:text-gray-500">投稿者: {{ $tweet->user->name }}</p>
             </a>
             <a href="{{ route('tweets.show', $tweet) }}" class="text-blue-500 hover:text-blue-700">詳細を見る</a>
             <div class="flex">
@@ -48,4 +49,3 @@
   </div>
 
 </x-app-layout>
-
