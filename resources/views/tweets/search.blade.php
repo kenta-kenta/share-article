@@ -32,8 +32,10 @@
 
           @foreach ($tweets as $tweet)
           <div class="mb-4 p-4 bg-gray-100 dark:bg-gray-700 rounded-lg">
+            <a href="{{ $tweet->article_url }}" class="text-gray-600 underline hover:underline hover:text-gray-500 dark:text-gray-400">{{ $tweet->article }}</a>
             <p class="text-gray-800 dark:text-gray-300">{{ $tweet->tweet }}</p>
-            <p class="text-gray-600 dark:text-gray-400 text-sm">投稿者: {{ $tweet->user->name }}</p>
+            <a href="{{ route('profile.show', $tweet->user) }}" class="text-gray-600 dark:text-gray-400 text-sm hover:text-gray-500 inline">投稿者: {{ $tweet->user->name }}</a>
+            <br>
             <a href="{{ route('tweets.show', $tweet) }}" class="text-blue-500 hover:text-blue-700">詳細を見る</a>
             <div class="flex">
               @if ($tweet->liked->contains(auth()->id()))
@@ -65,4 +67,3 @@
     </div>
   </div>
 </x-app-layout>
-

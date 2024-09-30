@@ -14,11 +14,11 @@
           <form method="POST" action="{{ route('tweets.store') }}">
             @csrf
             <div class="mb-4">
-              <label for="article" class="block text-gray-700 dark:text-gray-300 text-sm font-bold mb-2">article</label>
+              <label for="article" class="block text-gray-700 dark:text-gray-300 text-sm font-bold mb-2">記事タイトル</label>
               <input type="text" name="article" id="article" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 dark:text-gray-300 dark:bg-gray-700 leading-tight focus:outline-none focus:shadow-outline">
-              <label for="article_url" class="block text-gray-700 dark:text-gray-300 text-sm font-bold mb-2">article_URL</label>
+              <label for="article_url" class="block text-gray-700 dark:text-gray-300 text-sm font-bold mb-2">記事のURL</label>
               <input type="url" name="article_url" id="article_url" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 dark:text-gray-300 dark:bg-gray-700 leading-tight focus:outline-none focus:shadow-outline">
-              <label for="tweet" class="block text-gray-700 dark:text-gray-300 text-sm font-bold mb-2">Tweet</label>
+              <label for="tweet" class="block text-gray-700 dark:text-gray-300 text-sm font-bold mb-2">投稿内容</label>
               <textarea name="tweet" id="tweet" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 dark:text-gray-300 dark:bg-gray-700 leading-tight focus:outline-none focus:shadow-outline"></textarea>
               @error('tweet')
               <span class="text-red-500 text-xs italic">{{ $message }}</span>

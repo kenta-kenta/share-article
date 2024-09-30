@@ -13,7 +13,7 @@
         <div class="p-6 text-gray-900 dark:text-gray-100">
           <a href="{{ route('tweets.index') }}" class="text-blue-500 hover:text-blue-700 mr-2">一覧に戻る</a>
           <br>
-          <a href= "{{ $tweet->article_url }}" class="text-gray-400 hover:text-gray-500 text-lg inline-block">{{ $tweet->article }}</a>
+          <a href="{{ $tweet->article_url }}" class="text-gray-400 hover:text-gray-500 text-lg inline-block">{{ $tweet->article }}</a>
           <p class="text-gray-800 dark:text-gray-300 text-lg">{{ $tweet->tweet }}</p>
           <p class="text-gray-600 dark:text-gray-400 text-sm">投稿者: {{ $tweet->user->name }}</p>
           <div class="text-gray-600 dark:text-gray-400 text-sm">
@@ -45,7 +45,7 @@
             @endif
           </div>
           <div class="mt-4">
-            <p class="text-gray-600 dark:text-gray-400 ml-4">comment {{ $tweet->comments->count() }}</p>
+            <p class="text-gray-600 dark:text-gray-400">comment {{ $tweet->comments->count() }}</p>
             <a href="{{ route('tweets.comments.create', $tweet) }}" class="text-blue-500 hover:text-blue-700 mr-2">コメントする</a>
           </div>
           <div class="mt-4">
