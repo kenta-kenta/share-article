@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\View\View;
 use App\Models\User;
+use App\Models\Tweet;
 
 class ProfileController extends Controller
 {
@@ -27,7 +28,21 @@ class ProfileController extends Controller
      */
     public function show(User $user)
     {
-        return view('profile.show', compact('user'));
+        if (auth()->user()->is($user)) {
+            $tweets = Tweet::query()
+                ->where('user_id', $user->id)
+                ->orWhereIn('user_id', $user->follows->pluck('id'))
+                ->latest()
+                ->paginate(10);
+        } else {
+            $tweets = $user
+                ->tweets()
+                ->latest()
+                ->paginate(10);
+        }
+
+        $user->load(['follows', 'followers']);
+        return view('profile.show', compact('user', 'tweets'));
     }
     /**
      * Update the user's profile information.
