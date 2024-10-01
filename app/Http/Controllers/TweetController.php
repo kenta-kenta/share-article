@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Tweet;
 use Illuminate\Http\Request;
+use Carbon\Carbon;
 
 class TweetController extends Controller
 {
@@ -35,7 +36,21 @@ class TweetController extends Controller
             'article_url' => 'required',
         ]);
 
-        $request->user()->tweets()->create($request->only(['article', 'article_url', 'tweet']));
+        $tweet = new Tweet();
+        $tweet->tweet = $request->input('tweet');
+        $tweet->article = $request->input('article');
+        $tweet->article_url = $request->input('article_url');
+
+        if ($request->input('is_story')) {
+            $tweet->is_story = true;
+            $tweet->expires_at = Carbon::now()->addDay();  // 24時間後に有効期限を設定
+        } else {
+            // 通常の投稿の場合
+            $tweet->is_story = false;
+            $tweet->expires_at = null;
+        }
+
+        $tweet->save();
 
         return redirect()->route('tweets.index');
     }
