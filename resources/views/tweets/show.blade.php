@@ -12,7 +12,7 @@
       <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
         <div class="p-6 text-gray-900 dark:text-gray-100">
           <a href="{{ route('tweets.index') }}" class="text-blue-500 hover:text-blue-700 mr-2">一覧に戻る</a>
-          <br>
+          <p class="text-green-500">ストーリー投稿</p>
           <a href="{{ $tweet->article_url }}" class="text-gray-400 hover:text-gray-500 text-lg inline-block">{{ $tweet->article }}</a>
           <p class="text-gray-800 dark:text-gray-300 text-lg">{{ $tweet->tweet }}</p>
           <p class="text-gray-600 dark:text-gray-400 text-sm">投稿者: {{ $tweet->user->name }}</p>
