@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Builder;
 
 class Tweet extends Model
 {
@@ -24,5 +25,10 @@ class Tweet extends Model
     public function comments()
     {
         return $this->hasMany(Comment::class)->orderBy('created_at', 'desc');
+    }
+
+    public function scopeExpired(Builder $query)
+    {
+        return $query->where('expires_at', '<=', now());
     }
 }
