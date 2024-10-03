@@ -6,6 +6,7 @@ use App\Models\Tweet;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Database\Eloquent\Builder;
 
 class TweetController extends Controller
 {
@@ -116,5 +117,10 @@ class TweetController extends Controller
             ->paginate(10);
 
         return view('tweets.search', compact('tweets'));
+    }
+
+    public function scopeOlderThanOneHour(Builder $query)
+    {
+        return $query->where('created_at', '<', now()->subHour());
     }
 }
