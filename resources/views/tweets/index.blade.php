@@ -3,7 +3,7 @@
 <x-app-layout>
   <x-slot name="header">
     <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
-      {{ __('Tweet一覧') }}
+      {{ __('投稿一覧') }}
     </h2>
   </x-slot>
 
@@ -21,7 +21,7 @@
             <p class="text-gray-800 dark:text-gray-300">{{ $tweet->tweet }}</p>
             <a href="{{ route('profile.show', $tweet->user) }}" class="text-gray-600 dark:text-gray-400 text-sm hover:text-gray-500 inline">投稿者: {{ $tweet->user->name }}</a>
             <br>
-            <a href="{{ route('tweets.show', $tweet) }}" class="text-green-500 hover:text-green-700">このストーリーの詳細を見る</a>
+            <a href="{{ route('tweets.show', $tweet) }}" class="text-green-500 hover:text-green-700">この投稿の詳細を見る</a>
             <div class="flex">
               @if ($tweet->liked->contains(auth()->id()))
               <form action="{{ route('tweets.dislike', $tweet) }}" method="POST">
