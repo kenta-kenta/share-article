@@ -13,6 +13,8 @@
 
 ## デプロイ先の URL または画面収録したファイル名
 
+https://drive.google.com/file/d/1duJJYfRJg6VRbDdY0fyNGfB_GMQ5H5Sm/view?usp=drive_link
+
 ## 使い方
 
 1. 投稿作成から記事の種類が選べることを確認する
