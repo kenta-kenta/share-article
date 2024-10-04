@@ -25,7 +25,8 @@ https://drive.google.com/file/d/1duJJYfRJg6VRbDdY0fyNGfB_GMQ5H5Sm/view?usp=drive
 
 全体的に UX を意識した.  
 具体的には, Tweet 一覧や詳細画面で display プロパティを設定して, 作者や記事名の文字にのみホバーされるようにしたこと.  
-a タグはホバーしたときの変化もつけた.
+a タグはホバーしたときの変化もつけた.  
+開発で issue を利用して開発した.
 
 ## 苦戦した点
 
