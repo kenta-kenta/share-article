@@ -46,7 +46,7 @@ class TweetController extends Controller
 
         if ($request->input('is_story')) {
             $tweet->is_story = true;
-            $tweet->expires_at = Carbon::now()->addHour();  // 24時間後に有効期限を設定
+            $tweet->expires_at = Carbon::now()->addMinute();  // 24時間後に有効期限を設定
         } else {
             // 通常の投稿の場合
             $tweet->is_story = false;
