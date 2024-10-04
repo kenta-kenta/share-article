@@ -3,7 +3,7 @@
 <x-app-layout>
   <x-slot name="header">
     <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
-      {{ __('Tweet編集') }}
+      {{ __('投稿編集') }}
     </h2>
   </x-slot>
 
@@ -26,7 +26,7 @@
               <span class="text-red-500 text-xs italic">{{ $message }}</span>
               @enderror
             </div>
-            <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">Update</button>
+            <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">更新する</button>
           </form>
         </div>
       </div>

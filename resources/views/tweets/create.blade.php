@@ -3,7 +3,7 @@
 <x-app-layout>
   <x-slot name="header">
     <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
-      {{ __('Tweet作成') }}
+      {{ __('投稿作成') }}
     </h2>
   </x-slot>
 
@@ -24,10 +24,19 @@
               <span class="text-red-500 text-xs italic">{{ $message }}</span>
               @enderror
             </div>
-            <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">Tweet</button>
+            <input type="hidden" name="is_story" id="is_story">
+            <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">通常投稿</button>
+            <button type="submit" class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" onclick="submitStory()">特別投稿</button>
           </form>
         </div>
       </div>
     </div>
   </div>
+
+  <script>
+    function submitStory() {
+      document.getElementById('is_story').value = true;
+      document.querySelector('form').submit();
+    }
+  </script>
 </x-app-layout>
